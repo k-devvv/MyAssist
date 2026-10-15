@@ -1,0 +1,58 @@
+{
+  "name": "myassist",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Offline desktop companion with push-to-talk dictation",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "dist": "npm run build && electron-builder --win dir"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "@types/three": "^0.180.0",
+    "electron": "^39.0.0",
+    "electron-vite": "^5.0.0",
+    "typescript": "^5.9.3",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.myassist.desktop",
+    "productName": "MyAssist",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "out/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "resources",
+        "to": "resources",
+        "filter": [
+          "worker/**/*",
+          "models/base/config.json",
+          "models/base/model.bin",
+          "models/base/tokenizer.json",
+          "models/base/vocabulary.txt",
+          "models/base/MODEL-PROVENANCE.txt"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        "dir"
+      ],
+      "artifactName": "MyAssist-Setup-${version}.${ext}"
+    },
+    "electronDist": "node_modules/electron/dist"
+  },
+  "packageManager": "pnpm@10.28.1+sha512.7d7dbbca9e99447b7c3bf7a73286afaaf6be99251eb9498baefa7d406892f67b879adb3a1d7e687fc4ccc1a388c7175fbaae567a26ab44d1067b54fcb0d6a316",
+  "pnpm": {},
+  "author": "MyAssist"
+}

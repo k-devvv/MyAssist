@@ -1,0 +1,25 @@
+node_modules/
+out/
+build/
+release/
+.pnpm-store/
+.corepack/
+.npm-cache/
+.electron-cache/
+.electron-builder-cache/
+.hf-cache/
+.pip-cache/
+worker/.venv/
+worker/dist/
+worker/build/
+resources/worker/
+resources/models/
+__pycache__/
+*.spec
+*.log
+
+# Alternate application packages and visual brainstorming sessions
+release-*/
+.superpowers/
+debug-launch/
+.pnpm-store*/
